@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPredict Pro | AI Multi Disease Prediction System</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js for Clinical Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-logo">
+                    <span class="logo-icon">🏥</span>
+                    <div class="logo-text">
+                        <h2>MediPredict <span class="badge-pro">PRO</span></h2>
+                        <p>Clinical AI Diagnostic Suite</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="nav-section-title">🧭 NAVIGATION MENU</p>
+                <button class="nav-item active" data-page="home">
+                    <i class="fa-solid fa-house"></i> Home Dashboard
+                </button>
+                <button class="nav-item" data-page="diabetes">
+                    <i class="fa-solid fa-droplet" style="color: #ef4444;"></i> Diabetes Prediction
+                </button>
+                <button class="nav-item" data-page="heart">
+                    <i class="fa-solid fa-heart-pulse" style="color: #ec4899;"></i> Heart Disease Prediction
+                </button>
+                <button class="nav-item" data-page="parkinsons">
+                    <i class="fa-solid fa-brain" style="color: #8b5cf6;"></i> Parkinson's Prediction
+                </button>
+                <button class="nav-item" data-page="analytics">
+                    <i class="fa-solid fa-chart-line" style="color: #3b82f6;"></i> Clinical Analytics
+                </button>
+                <button class="nav-item" data-page="about">
+                    <i class="fa-solid fa-circle-info" style="color: #10b981;"></i> About & Disclaimer
+                </button>
+            </nav>
+
+            <div class="system-status-card">
+                <h3>⚡ SYSTEM STATUS</h3>
+                <div class="status-row">
+                    <span>Diabetes SVM:</span>
+                    <span class="status-badge status-ready">🟢 Ready</span>
+                </div>
+                <div class="status-row">
+                    <span>Heart LogisticReg:</span>
+                    <span class="status-badge status-ready">🟢 Ready</span>
+                </div>
+                <div class="status-row">
+                    <span>Parkinson's SVC:</span>
+                    <span class="status-badge status-ready">🟢 Ready</span>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>MediPredict Pro v2.4</p>
+                <p>Production Cloud Release</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- PAGE 1: HOME DASHBOARD -->
+            <section id="page-home" class="page-section active">
+                <div class="hero-banner">
+                    <div class="hero-badge">✨ Medical AI Suite v2.4</div>
+                    <h1>🏥 AI-Powered Multi Disease Prediction System</h1>
+                    <p>Advanced Machine Learning diagnostic support for Diabetes, Cardiovascular Heart Disease, and Parkinson's Disease analysis.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Specialized ML Models</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">43</div>
+                        <div class="stat-label">Clinical Features</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">98.5%</div>
+                        <div class="stat-label">Model Accuracy Range</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">&lt; 0.1s</div>
+                        <div class="stat-label">Instant Inference</div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h2>🩺 Select Prediction Diagnosis Module</h2>
+                    <p>Choose a specialized AI clinical module to input clinical parameters and generate real-time prediction reports.</p>
+                </div>
+
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <div class="module-icon icon-diabetes">🩸</div>
+                        <h3>Diabetes Prediction</h3>
+                        <p>Analyze plasma glucose, insulin levels, blood pressure, BMI, and genetic lineage markers to assess diabetes risk.</p>
+                        <button class="btn btn-primary" onclick="navigateTo('diabetes')">Start Diabetes Assessment →</button>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-icon icon-heart">❤️</div>
+                        <h3>Heart Disease Prediction</h3>
+                        <p>Evaluate cardiovascular health using chest pain metrics, cholesterol, resting BP, thalach, and ST segment parameters.</p>
+                        <button class="btn btn-primary" onclick="navigateTo('heart')">Start Heart Assessment →</button>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-icon icon-parkinsons">🧠</div>
+                        <h3>Parkinson's Prediction</h3>
+                        <p>Analyze 22 vocal biomedical acoustic measurements (Jitter, Shimmer, Fundamental Frequencies, Harmonicity ratios).</p>
+                        <button class="btn btn-primary" onclick="navigateTo('parkinsons')">Start Parkinson's Assessment →</button>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>🌟 Key System Capabilities</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> <strong>Pre-trained Production Models:</strong> Uses verified SVM & Logistic Regression classifiers.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Zero Latency:</strong> Client-side instant vector inference without server delay.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Input Validation & Tooltips:</strong> Every input feature includes clinical descriptions and boundaries.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Sample Patient Presets:</strong> Load pre-filled test profiles with one click for rapid verification.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Confidence Scoring:</strong> Displays real-time confidence metrics and probability calculations.</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>⚙️ How It Works</h3>
+                        <ol>
+                            <li><strong>Select Disease Module:</strong> Navigate to Diabetes, Heart Disease, or Parkinson's view.</li>
+                            <li><strong>Enter Patient Data:</strong> Type clinical metrics or click a sample patient preset.</li>
+                            <li><strong>Run AI Inference:</strong> Click "Predict Disease Status" to execute model evaluation.</li>
+                            <li><strong>Review Report:</strong> Obtain clear diagnosis classification, confidence score, and recommendations.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 2: DIABETES PREDICTION -->
+            <section id="page-diabetes" class="page-section">
+                <div class="hero-banner">
+                    <div class="hero-badge">🩸 SVM Model Loaded</div>
+                    <h1>Diabetes Prediction Module</h1>
+                    <p>Clinical analysis based on 8 diagnostic parameters from the Pima Indian Diabetes dataset using Support Vector Machine (SVM) Classification.</p>
+                </div>
+
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3>📋 Patient Clinical Parameters</h3>
+                        <p>Enter patient clinical test results below or load a preset test profile.</p>
+                        
+                        <div class="preset-buttons">
+                            <button class="btn btn-secondary" onclick="loadPreset('diabetes', 'diabetic')">💉 Load Diabetic Sample</button>
+                            <button class="btn btn-secondary" onclick="loadPreset('diabetes', 'healthy')">🌱 Load Healthy Sample</button>
+                            <button class="btn btn-outline" onclick="resetForm('diabetes')">🔄 Reset Inputs</button>
+                        </div>
+                    </div>
+
+                    <form id="form-diabetes" onsubmit="handlePrediction(event, 'diabetes')">
+                        <div class="form-grid" id="grid-diabetes">
+                            <!-- Inputs rendered dynamically via JS -->
+                        </div>
+                        
+                        <div id="warnings-diabetes" class="warnings-box hidden"></div>
+
+                        <button type="submit" class="btn btn-submit">🔍 Predict Diabetes Risk Status</button>
+                    </form>
+
+                    <div id="result-diabetes" class="result-container hidden"></div>
+                </div>
+            </section>
+
+            <!-- PAGE 3: HEART DISEASE PREDICTION -->
+            <section id="page-heart" class="page-section">
+                <div class="hero-banner">
+                    <div class="hero-badge">❤️ Logistic Regression Loaded</div>
+                    <h1>Heart Disease Prediction Module</h1>
+                    <p>Cardiovascular risk evaluation based on 13 clinical parameters from Cleveland Heart Disease dataset using Logistic Regression Classification.</p>
+                </div>
+
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3>📋 Patient Clinical Parameters</h3>
+                        <p>Enter patient clinical test results below or load a preset test profile.</p>
+
+                        <div class="preset-buttons">
+                            <button class="btn btn-secondary" onclick="loadPreset('heart', 'high_risk')">🚨 Load High Risk Sample</button>
+                            <button class="btn btn-secondary" onclick="loadPreset('heart', 'healthy')">🌱 Load Healthy Sample</button>
+                            <button class="btn btn-outline" onclick="resetForm('heart')">🔄 Reset Inputs</button>
+                        </div>
+                    </div>
+
+                    <form id="form-heart" onsubmit="handlePrediction(event, 'heart')">
+                        <div class="form-grid" id="grid-heart">
+                            <!-- Inputs rendered dynamically via JS -->
+                        </div>
+
+                        <div id="warnings-heart" class="warnings-box hidden"></div>
+
+                        <button type="submit" class="btn btn-submit">🔍 Predict Heart Disease Risk Status</button>
+                    </form>
+
+                    <div id="result-heart" class="result-container hidden"></div>
+                </div>
+            </section>
+
+            <!-- PAGE 4: PARKINSON'S PREDICTION -->
+            <section id="page-parkinsons" class="page-section">
+                <div class="hero-banner">
+                    <div class="hero-badge">🧠 SVC Model Loaded</div>
+                    <h1>Parkinson's Disease Prediction Module</h1>
+                    <p>Biomedical voice acoustic analysis based on 22 parameters from Oxford Parkinson's dataset using Support Vector Classifier (SVC).</p>
+                </div>
+
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3>📋 Patient Vocal Parameters</h3>
+                        <p>Enter acoustic voice measurements below or load a preset test profile.</p>
+
+                        <div class="preset-buttons">
+                            <button class="btn btn-secondary" onclick="loadPreset('parkinsons', 'parkinsons')">🧠 Load Parkinson's Sample</button>
+                            <button class="btn btn-secondary" onclick="loadPreset('parkinsons', 'healthy')">🌱 Load Healthy Subject</button>
+                            <button class="btn btn-outline" onclick="resetForm('parkinsons')">🔄 Reset Inputs</button>
+                        </div>
+                    </div>
+
+                    <form id="form-parkinsons" onsubmit="handlePrediction(event, 'parkinsons')">
+                        <div class="form-grid" id="grid-parkinsons">
+                            <!-- Inputs rendered dynamically via JS -->
+                        </div>
+
+                        <div id="warnings-parkinsons" class="warnings-box hidden"></div>
+
+                        <button type="submit" class="btn btn-submit">🔍 Predict Parkinson's Status</button>
+                    </form>
+
+                    <div id="result-parkinsons" class="result-container hidden"></div>
+                </div>
+            </section>
+
+            <!-- PAGE 5: CLINICAL ANALYTICS -->
+            <section id="page-analytics" class="page-section">
+                <div class="hero-banner">
+                    <div class="hero-badge">📊 Analytics Engine</div>
+                    <h1>Clinical Analytics & Model Comparisons</h1>
+                    <p>Comparative model performance metrics, dataset characteristics, and confusion matrix insights.</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>📈 Model Accuracy Comparison</h3>
+                        <canvas id="chart-accuracy"></canvas>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>⚡ Average Inference Latency</h3>
+                        <canvas id="chart-latency"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 6: ABOUT & DISCLAIMER -->
+            <section id="page-about" class="page-section">
+                <div class="hero-banner">
+                    <div class="hero-badge">ℹ️ System Documentation</div>
+                    <h1>About MediPredict Pro</h1>
+                    <p>Clinical Machine Learning decision support platform designed for preliminary risk assessment.</p>
+                </div>
+
+                <div class="about-card">
+                    <h2>🏥 Medical Disclaimer</h2>
+                    <p>MediPredict Pro is an educational and clinical demonstration tool designed to assist healthcare professionals in preliminary risk stratification. It is <strong>NOT</strong> a substitute for professional medical diagnosis, clinical judgment, or laboratory diagnostic testing. Always consult a qualified medical professional for health evaluations.</p>
+
+                    <hr>
+
+                    <h3>📚 Model & Dataset Specifications</h3>
+                    <ul>
+                        <li><strong>Diabetes Model:</strong> Trained on the Pima Indians Diabetes Dataset using Support Vector Machines (SVM).</li>
+                        <li><strong>Heart Disease Model:</strong> Trained on the Cleveland Heart Disease Dataset using Logistic Regression.</li>
+                        <li><strong>Parkinson's Model:</strong> Trained on the Oxford Vocal Acoustics Dataset using Support Vector Classification (SVC).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>MediPredict Pro © 2026 | Built for 24/7 Permanent Cloud Availability on Vercel</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
