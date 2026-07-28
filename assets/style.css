@@ -1,0 +1,326 @@
+/* =========================================================
+   MEDIPREDICT PRO - MODERN MEDICAL APPLICATION STYLESHEET
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #0F52BA;
+    --primary-hover: #003F9E;
+    --medical-teal: #00A896;
+    --accent-blue: #2563EB;
+    --light-bg: #F8FAFC;
+    --card-bg-light: #FFFFFF;
+    --card-border-light: #E2E8F0;
+    --text-primary-light: #0F172A;
+    --text-secondary-light: #475569;
+    --shadow-soft: 0 10px 30px rgba(15, 82, 186, 0.08);
+    --shadow-hover: 0 20px 40px rgba(15, 82, 186, 0.15);
+    --gradient-hero: linear-gradient(135deg, #0F52BA 0%, #00A896 100%);
+    --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
+    --gradient-success: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    --gradient-warning: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+    --font-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+}
+
+/* Global Font & Resets */
+html, body, [class*="css"] {
+    font-family: var(--font-body) !important;
+}
+
+/* Hide Streamlit Header/Footer Default Spacing if needed */
+header[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* Main Container Adjustments */
+.main .block-container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 3rem !important;
+    max-width: 1200px !important;
+}
+
+/* Hero Container */
+.hero-card {
+    background: var(--gradient-hero);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    color: #FFFFFF;
+    box-shadow: 0 15px 35px rgba(15, 82, 186, 0.25);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.hero-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 350px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    opacity: 0.95;
+    font-weight: 400;
+    max-width: 750px;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.hero-badge-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.hero-badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Medical Navigation Cards */
+.nav-card {
+    background: var(--card-bg-light);
+    border: 1px solid var(--card-border-light);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-soft);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-blue);
+}
+
+.nav-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.icon-diabetes { background: #EFF6FF; color: #2563EB; }
+.icon-heart { background: #FEF2F2; color: #EF4444; }
+.icon-parkinsons { background: #F0FDF4; color: #10B981; }
+
+.nav-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary-light);
+    margin-bottom: 0.5rem;
+}
+
+.nav-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary-light);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+/* Section Header */
+.section-header {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary-light);
+    margin-top: 4px;
+}
+
+/* Form Container Card */
+.form-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    padding: 1.75rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    margin-bottom: 1.5rem;
+}
+
+.form-group-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    border-bottom: 2px solid #E2E8F0;
+    padding-bottom: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Styled Streamlit Button Overrides */
+.stButton > button {
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-family: var(--font-body) !important;
+    transition: all 0.2s ease !important;
+    padding: 0.6rem 1.5rem !important;
+}
+
+.stButton > button[kind="primary"] {
+    background: var(--gradient-hero) !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 6px 20px rgba(15, 82, 186, 0.3) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(15, 82, 186, 0.4) !important;
+}
+
+/* Result Cards */
+.result-card-safe {
+    background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+    border: 2px solid #10B981;
+    border-radius: 16px;
+    padding: 1.75rem;
+    color: #065F46;
+    margin-top: 1.5rem;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+    animation: slideUp 0.5s ease-out;
+}
+
+.result-card-warning {
+    background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+    border: 2px solid #EF4444;
+    border-radius: 16px;
+    padding: 1.75rem;
+    color: #991B1B;
+    margin-top: 1.5rem;
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.15);
+    animation: slideUp 0.5s ease-out;
+}
+
+.result-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.result-score-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+/* Stat Box */
+.stat-box {
+    background: #F8FAFC;
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid #E2E8F0;
+    text-align: center;
+}
+
+.stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary-light);
+    font-weight: 600;
+}
+
+/* Medical Disclaimer Footer */
+.disclaimer-box {
+    background: #FFFBEB;
+    border: 1px solid #FCD34D;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    color: #92400E;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark Mode Overrides for Streamlit */
+@media (prefers-color-scheme: dark) {
+    .nav-card, .form-card, .stat-box {
+        background-color: #1E293B !important;
+        border-color: #334155 !important;
+        color: #F8FAFC !important;
+    }
+    
+    .nav-card-title, .section-title {
+        color: #F8FAFC !important;
+    }
+    
+    .nav-card-desc, .section-subtitle {
+        color: #94A3B8 !important;
+    }
+}
